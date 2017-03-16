@@ -5,7 +5,6 @@
 	
 	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
 
-		<![CDATA[
 				SELECT
 				'123123456' as RNUM,
 			    INFO_ID as IDX,
@@ -14,9 +13,10 @@
 			    '2017.03.10' AS CREA_DTM
 			FROM
 			   USER_INFO
-			WHERE
-				1=1
-		]]>
+			WHERE 	1=1
+			 <if test="INFO_ID != null">
+			 and INFO_ID = #{INFO_ID}
+			</if>
 
 	</select>
 	

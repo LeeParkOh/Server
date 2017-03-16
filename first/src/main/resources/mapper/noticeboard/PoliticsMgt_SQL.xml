@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="politicsBoardMgtDAO">
+	<select id="selectUserInfo" parameterType="hashmap" resultType="hashmap">
+	 SELECT USER_ID as userId,
+	       USER_OS as userOs,
+	       USER_HW as userHw,
+	       REG_DT as regDt,
+	       DROP_DT as dropDt, 
+	       USER_ACTIVE_FG as userActiveFg
+	FROM TB_USER
+	where 1=1
+	 <if test="userId != null">
+		and USER_ID = #{userId}
+	</if>	
+	</select>
+	
+	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="headSeq">
+		<selectKey keyProperty="headSeq" resultType="string" order="BEFORE">
+			SELECT ifnull(MAX(HEAD_SEQ),0)+1 FROM TB_BOARD_HEAD
+		</selectKey>
+		<![CDATA[
+			INSERT INTO TB_BOARD_HEAD
+			(
+				HEAD_SEQ,
+				USER_ID,
+				BOARD_ID,
+				BOARD_TITLE,
+				BOARD_BODY_FG,
+				REG_DT,
+				LST_CHG_DT,
+				BOARD_ACTIVE_FG
+			)
+			VALUES
+			(
+				#{headSeq},
+				#{userId},
+				#{boardId},
+				#{boardTitle},
+				#{boardBodyFg},
+				#{regDt},
+				#{lstChgDt},
+				#{boardActiveFg}
+			)
+		]]>
+	</insert>
+	
+	
+</mapper>

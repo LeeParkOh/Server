@@ -12,6 +12,7 @@
 		<org.springframework-version>3.2.4.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.7.3</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+	
 	</properties>
 	
 	<repositories>
@@ -328,7 +329,7 @@
     	<type>maven-plugin</type>
     </dependency>
      -->
-    
+
 	</dependencies>
 	
 	
