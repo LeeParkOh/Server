@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cmnCdMgtDAO">
+
+	<!-- 공통코드조 -->
+	<select id="selectCmnCd" parameterType="hashmap" resultType="hashmap">
+	 SELECT GRP_CD as grpCd,
+	        DTL_CD as dtlCd,
+	        DTL_CD_NM as dtlCdNm,
+	        VAL1 as val1,
+	        VAL2 as val2, 
+	        VAL3 as val3,
+	        USE_YN as useYn,
+	        REG_DT as regDt,
+	        LST_CHG_DT as lstChgDt
+	FROM ALL_CD
+	where 1=1
+	 <if test="grpCd != null">
+		and GRP_CD = #{grpCd}
+	</if>	
+	</select>
+</mapper>
