@@ -30,11 +30,8 @@ public class PoliticsBoardServiceImpl implements IPoliticsBoardService{
 	
 	@Override
 	public void insertBoard(Map<String, Object> map, HttpServletRequest request) throws Exception {
-		
-		String masterPk = (String)politicsBoardMgtDAO.insertBoard(map);
-		log.debug("masterPk>>"+masterPk);
-		
-		
+		int masterPk = (int)politicsBoardMgtDAO.insertBoard(map);
+		log.debug(">>>>>"+map.get("headSeq"));
 		//politicsBoardMgtDAO.insertBoardDetail(map);
 	}
 

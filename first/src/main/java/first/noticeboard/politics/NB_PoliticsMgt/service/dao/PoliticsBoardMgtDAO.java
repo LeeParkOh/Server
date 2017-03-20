@@ -13,8 +13,8 @@ public class PoliticsBoardMgtDAO extends AbstractDAO{
 		return (List<Map<String, Object>>)selectPagingList("politicsBoardMgtDAO.selectUserInfo", map);
 	}
 
-	public String insertBoard(Map<String, Object> map) throws Exception{
-		return (String)insert("politicsBoardMgtDAO.insertBoard", map);
+	public int insertBoard(Map<String, Object> map) throws Exception{
+		return (int)insert("politicsBoardMgtDAO.insertBoard", map);
 	}
 
 }

@@ -26,7 +26,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class KctcMsgUtilService {
 
 	private static Logger logger = Logger.getLogger(KctcMsgUtilService.class);
-	
 	/**
 	 * 파라메터 없이 에러 메세지를 구한다. 예) 등록에 실패하였습니다.
 	 * @param psCode 에러코드
@@ -121,11 +120,9 @@ public class KctcMsgUtilService {
 	 * @return
 	 */
 	public static ModelAndView getSuccMsg(String psCode,ModelAndView poMav){
-		
 		String tsMsg = getMessage("succ",psCode,null);
 		poMav.addObject("ResultCode", "0");
 		poMav.addObject("ResultMsg", tsMsg);
-		
 		return poMav;
 	}
 	/**
@@ -227,12 +224,10 @@ public class KctcMsgUtilService {
 	 */
 	private static String getMessage(String wrkCode, String strCode, String[] arrParam) {
 		String message = "";
-		wrkCode = ""; // 룰셋 UnusedFormalParameter 사유로 수정 (sicc 이선웅 담당 / 2015-11-25)
+		wrkCode = ""; 
 		Locale locale = new Locale("ko", "KR");
 //		Locale locale = LocaleContextHolder.getLocale();
-
 		MessageSource messageSource = (MessageSource) AppContext.getBean("messageSource");
-		
 		if (messageSource == null)
 			return "해당 메시지 코드 설정 내역이 없습니다.";
 		

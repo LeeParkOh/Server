@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="headSeq">
-		<selectKey keyProperty="headSeq" resultType="string" order="BEFORE">
+		<selectKey keyProperty="headSeq" resultType="int" order="BEFORE" >
 			SELECT ifnull(MAX(HEAD_SEQ),0)+1 FROM TB_BOARD_HEAD
 		</selectKey>
 		<![CDATA[

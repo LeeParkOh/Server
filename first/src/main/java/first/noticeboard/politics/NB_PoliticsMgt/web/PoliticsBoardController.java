@@ -50,15 +50,12 @@ public class PoliticsBoardController {
 		ModelAndView mav = new ModelAndView("jsonView");
 	try{
 		iPoliticsBoardService.insertBoard(commandMap.getMap(), request);
-		mav = KctcMsgUtilService.getSuccMsg("SCMC001", mav);
 	}catch(DataAccessException de){
-		log.debug(">>>> KKONG E: "+de.getMessage());
+		log.debug(">>>> KKONG E1: "+de.getMessage());
 		mav = new ModelAndView("jsonView");
-		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
 	}catch ( Exception e ){
-		log.debug(">>>> KKONG E: "+e.getMessage());
+		log.debug(">>>> KKONG E2: "+e.getMessage());
 		mav = new ModelAndView("jsonView");
-		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
 	}
 		return mav;
 	}

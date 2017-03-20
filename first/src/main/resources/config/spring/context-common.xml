@@ -32,7 +32,7 @@
             </map>
         </property>
     </bean>
-    
+    <bean id="appContext" class="first.common.util.AppContext" />
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="defaultEncoding" value="UTF-8"/>
 		<property name="basenames">
