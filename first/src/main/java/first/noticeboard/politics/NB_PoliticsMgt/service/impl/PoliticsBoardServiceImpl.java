@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import first.common.util.FileUtils;
 import first.noticeboard.politics.NB_PoliticsMgt.service.IPoliticsBoardService;
 import first.noticeboard.politics.NB_PoliticsMgt.service.dao.PoliticsBoardMgtDAO;
+import first.noticeboard.politics.NB_PoliticsMgt.service.vo.PoliticsBoardInfoVO;
 
 @Service("iPoliticsBoardService")
 public class PoliticsBoardServiceImpl implements IPoliticsBoardService{
@@ -35,4 +36,10 @@ public class PoliticsBoardServiceImpl implements IPoliticsBoardService{
 		//politicsBoardMgtDAO.insertBoardDetail(map);
 	}
 
+	@Override
+	public  List<Map<String, Object>> searchPoliticsBoardInfo(Map<String, Object> map)  {
+		return politicsBoardMgtDAO.selectPoliticsBoardInfo(map);
+	}
+	
+	
 }

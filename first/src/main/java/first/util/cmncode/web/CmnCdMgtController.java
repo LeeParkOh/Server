@@ -39,11 +39,13 @@ public class CmnCdMgtController {
 			mav.addObject("cmnCdList", list);
 			mav = KctcMsgUtilService.getSuccMsg("SCMR006", mav);
 		}catch(DataAccessException de){
-			log.debug(">>>> DataAccessException E: "+de.getMessage());
+			log.debug("JK >>>> DataAccessException E: "+de.getMessage());
 			mav = new ModelAndView("jsonView");
+			mav = KctcMsgUtilService.getSqlMsg( mav,de );
 		}catch ( Exception e ){
-			log.debug(">>>> Exception E: "+e.getMessage());
+			log.debug("JK >>>> Exception E: "+e.getMessage());
 			mav = new ModelAndView("jsonView");
+			mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
 		}
 		return mav;
 	}
