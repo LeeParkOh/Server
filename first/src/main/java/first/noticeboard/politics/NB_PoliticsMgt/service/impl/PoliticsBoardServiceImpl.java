@@ -42,4 +42,15 @@ public class PoliticsBoardServiceImpl implements IPoliticsBoardService{
 	}
 	
 	
+	@Override
+	public void insertBoardReply(Map<String, Object> map, HttpServletRequest request) throws Exception {
+			politicsBoardMgtDAO.insertBoardReply(map);
+	}
+	
+	@Override
+	public  List<Map<String, Object>> searchPoliticsBoardReply(Map<String, Object> map)  {
+		return politicsBoardMgtDAO.selectPoliticsBoardReply(map);
+	}
+	
+	
 }

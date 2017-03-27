@@ -95,4 +95,52 @@ public class PoliticsBoardController {
 		return mav;
 	}
 	
+	/**
+	  * Description : 게시판 댓글달기 
+	  * @author  박종국 
+	  * @since   2017.03.21
+	  * @param  commandMap
+	  * @return  ModelAndView
+	*/
+	@RequestMapping(value="/politics/insertBoardReply.do")
+	public ModelAndView insertBoardReply(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		ModelAndView mav = new ModelAndView("jsonView");
+	try{
+		iPoliticsBoardService.insertBoardReply(commandMap.getMap(), request);
+		mav = KctcMsgUtilService.getSuccMsg("SCMC001", mav);
+	}catch(DataAccessException de){
+		mav = new ModelAndView("jsonView");
+		mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+	}catch ( Exception e ){
+		mav = new ModelAndView("jsonView");
+		mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+	}
+		return mav;
+	}
+	
+	/**
+	  * Description :  댓글 조회 
+	  * @author  박종국 
+	  * @since   2017.03.22
+	  * @param  commandMap
+	  * @return  ModelAndView
+	*/
+	@RequestMapping("/politics/searchPoliticsBoardReply.do")
+	public ModelAndView searchPoliticsBoardReply(CommandMap commandMap) throws Exception {
+		ModelAndView mav = new ModelAndView("jsonView");
+		try {
+			List<Map<String,Object>> list = iPoliticsBoardService.searchPoliticsBoardReply(commandMap.getMap());
+			mav.addObject("PoliticsListReply", list);
+			mav = KctcMsgUtilService.getSuccMsg("SCMR001", mav);
+		}catch(DataAccessException de){
+			mav = new ModelAndView("jsonView");
+			mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		}catch ( Exception e ){
+			log.debug(">>>> JK E: "+e.getMessage());
+			mav = new ModelAndView("jsonView");
+			mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		}
+		return mav;
+	}
+	
 }

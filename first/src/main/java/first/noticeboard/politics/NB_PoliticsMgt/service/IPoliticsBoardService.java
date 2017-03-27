@@ -14,4 +14,8 @@ public interface IPoliticsBoardService {
 	void insertBoard(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	public List<Map<String, Object>> searchPoliticsBoardInfo(Map<String, Object> map);
+	
+	void insertBoardReply(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	
+	public List<Map<String, Object>> searchPoliticsBoardReply(Map<String, Object> map);
 }

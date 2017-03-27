@@ -24,4 +24,13 @@ public class PoliticsBoardMgtDAO extends AbstractDAO{
 		return (List<Map<String, Object>>)selectList("politicsBoardMgtDAO.selectPoliticsBoardInfo", map);
 	}
 	
+	public void  insertBoardReply(Map<String, Object> map) throws Exception{
+			insert("politicsBoardMgtDAO.insertBoardReply", map);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public   List<Map<String, Object>> selectPoliticsBoardReply(Map<String, Object> map) {
+		return (List<Map<String, Object>>)selectList("politicsBoardMgtDAO.selectPoliticsBoardReply", map);
+	}
+	
 }
