@@ -37,11 +37,11 @@ public class CmnCdMgtController {
 		try {
 			List<Map<String,Object>> list = iCmnCdMgtService.searchCmnCd(commandMap.getMap());
 			mav.addObject("cmnCdList", list);
-			mav = KctcMsgUtilService.getSuccMsg("SCMR006", mav);
+			mav = KctcMsgUtilService.getSuccMsg("SCMR001", mav);
 		}catch(DataAccessException de){
 			log.debug("JK >>>> DataAccessException E: "+de.getMessage());
 			mav = new ModelAndView("jsonView");
-			mav = KctcMsgUtilService.getSqlMsg( mav,de );
+			mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
 		}catch ( Exception e ){
 			log.debug("JK >>>> Exception E: "+e.getMessage());
 			mav = new ModelAndView("jsonView");

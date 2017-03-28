@@ -62,10 +62,10 @@ public class PoliticsBoardController {
 		mav = KctcMsgUtilService.getSuccMsg("SCMC001", mav);
 	}catch(DataAccessException de){
 		mav = new ModelAndView("jsonView");
-		mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
 	}catch ( Exception e ){
 		mav = new ModelAndView("jsonView");
-		mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
 	}
 		return mav;
 	}
@@ -110,10 +110,10 @@ public class PoliticsBoardController {
 		mav = KctcMsgUtilService.getSuccMsg("SCMC001", mav);
 	}catch(DataAccessException de){
 		mav = new ModelAndView("jsonView");
-		mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
 	}catch ( Exception e ){
 		mav = new ModelAndView("jsonView");
-		mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
 	}
 		return mav;
 	}

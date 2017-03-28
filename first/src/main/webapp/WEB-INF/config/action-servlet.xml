@@ -23,10 +23,24 @@
 	</mvc:annotation-driven>
 	
 	<mvc:interceptors>
+		<!-- 로그인체크 인터셉터 클래스 20170328-->
+		<mvc:interceptor>
+		  <mvc:mapping path="/**"/>
+           <!-- 여러개 컨트롤러 추가 가능 -->
+           <!-- path에 적힌 컨트롤에서만 실행됨 -->
+           <!--
+                <mvc:mapping path="/politics/searchUserInfo.do"/>
+                <mvc:mapping path="/admin_update"/>
+                <mvc:mapping path="/admin_delete"/>
+           -->
+           <bean id="boardInterceptor" class="first.common.util.BoardInterceptor"/>
+           </mvc:interceptor>
+	
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<bean id="loggerInterceptor" class="first.common.logger.LoggerInterceptor"></bean>
 		</mvc:interceptor>
+
 	</mvc:interceptors>
 	
 	<aop:aspectj-autoproxy/>

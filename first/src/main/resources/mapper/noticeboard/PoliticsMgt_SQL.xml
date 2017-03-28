@@ -62,7 +62,7 @@
 				,A.USER_ID 																			AS userId
 				,A.USER_NM 																			AS userNm
 				,A.BOARD_CD 																		AS boardCd
-				,A.BOARD_TITLE	    															AS boardTilte
+				,A.BOARD_TITLE	    															AS boardTitle
 				,date_format(A.REG_DT, '%Y%m%d%h%i%S') 			AS regDt
 				,date_format(A.LST_CHG_DT, '%Y%m%d%h%i%S')	AS lstChgDt
 				,A.BOARD_ACTIVE_FG		 													AS boardActiveFg
