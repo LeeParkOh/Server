@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userOperatingMgtDAO">
+	
+	<!-- 사용자 조회  -->
+	<select id="selectUserInfo" parameterType="hashmap" resultType="hashmap">
+	 SELECT USER_ID 							as userId,
+	       USER_OS 								as userOs,
+	       USER_HW								as userHw,
+	       REG_DT									as regDt,
+	       DROP_DT 								as dropDt, 
+	       USER_ACTIVE_FG 					as userActiveFg,
+	       USER_PW									as userPw
+	FROM TB_USER
+	where 1=1
+		and USER_ID = #{userId}
+	</select>
+	
+	<!--  사용자 등록  -->
+	<insert id="insertUserInfo" parameterType="hashmap" >
+			INSERT INTO TB_USER
+			(
+				USER_ID,
+				USER_OS,
+				USER_HW,
+				REG_DT,
+				DROP_DT,
+				USER_ACTIVE_FG,
+				USER_PW
+			)
+			VALUES
+			(
+				#{userId},
+				#{userOs},
+				#{userHw},
+				date_format(now(), '%Y%m%d%h%i%S'),
+				date_format(now(), '%Y%m%d%h%i%S'),
+				#{userActive},
+				#{userPw}
+			)
+	</insert>
+</mapper>

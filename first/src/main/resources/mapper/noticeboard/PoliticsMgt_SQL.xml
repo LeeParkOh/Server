@@ -58,7 +58,7 @@
 	
 	<!-- 게시판목록 조회 -->
 	<select id="selectPoliticsBoardInfo" parameterType="hashmap" resultType="hashmap">
-		SELECT  A.HEAD_SEQ 																	AS headSeq
+		SELECT  CAST(A.HEAD_SEQ  AS CHAR(11))								AS headSeq
 				,A.USER_ID 																			AS userId
 				,A.USER_NM 																			AS userNm
 				,A.BOARD_CD 																		AS boardCd
@@ -68,10 +68,10 @@
 				,A.BOARD_ACTIVE_FG		 													AS boardActiveFg
 				,A.BOARD_BODY1 																AS boardBody1
 				,A.BOARD_BODY2 																AS boardBody2
-				,A.BOARD_SEARCH_CNT 														AS boardSearchCnt
-				,A.BOARD_BEST_CNT 															AS boardBestCnt
-                ,CASE WHEN B.CNT IS NULL 
-                  THEN 0 ELSE B.CNT END	   													 AS replyCnt
+				,CAST(A.BOARD_SEARCH_CNT AS CHAR(11))					AS boardSearchCnt
+				,CAST(A.BOARD_BEST_CNT AS CHAR(11))						AS boardBestCnt
+                ,CAST(CASE WHEN B.CNT IS NULL 
+                  THEN 0 ELSE B.CNT END AS CHAR(11))	   						 AS replyCnt
 		FROM TB_BOARD_HEAD A  left outer  join ( SELECT DETAIL_SEQ, COUNT(1) AS CNT 
 											      FROM TB_BOARD_DETAIL 
 											      GROUP BY DETAIL_SEQ) B
@@ -111,13 +111,13 @@
 	
 		<!-- 게시판댓글 조회 -->
 	<select id="selectPoliticsBoardReply" parameterType="hashmap" resultType="hashmap">
-		SELECT    DETAIL_SEQ					AS detailSeq,
-						REPLY								AS reply,
-						REPLY_LEV						AS replyLev,
-						REPLY_RGST_DATE		AS replyRgstDate,
-						REPLY_MODY_DATE		AS replyModyDate,
-						REPLY_USER_ID				AS replyUserId,
-						REPLY_USER_NM			AS replyUserNm
+		SELECT    CAST(DETAIL_SEQ AS CHAR(11))					AS detailSeq,
+						REPLY																	AS reply,
+						CAST(REPLY_LEV	AS CHAR(3))  					AS replyLev,
+						REPLY_RGST_DATE											AS replyRgstDate,
+						REPLY_MODY_DATE											AS replyModyDate,
+						REPLY_USER_ID													AS replyUserId,
+						REPLY_USER_NM												AS replyUserNm
 		FROM TB_BOARD_DETAIL	
 		WHERE 1=1
 			<if test="detailSeq != null">

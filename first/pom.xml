@@ -335,6 +335,12 @@
     	<type>maven-plugin</type>
     </dependency>
      -->
+     <!-- 암복호화  -->
+		<dependency>  
+		    <groupId>org.jasypt</groupId>  
+		    <artifactId>jasypt-spring3</artifactId>  
+		    <version>1.9.2</version>  
+		</dependency>  
 
 	</dependencies>
 	
