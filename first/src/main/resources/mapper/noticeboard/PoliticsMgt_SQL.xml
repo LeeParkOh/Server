@@ -80,6 +80,7 @@
 			<if test="boardCd != null">
 				AND A.BOARD_CD = #{boardCd}
 			</if>	 
+			ORDER BY  A.REG_DT DESC
 	</select>
 	
 		<!--  게시판댓글 등록  -->
