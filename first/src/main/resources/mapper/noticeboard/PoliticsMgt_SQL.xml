@@ -63,7 +63,10 @@
 				,A.USER_NM 																			AS userNm
 				,A.BOARD_CD 																		AS boardCd
 				,A.BOARD_TITLE	    															AS boardTitle
-				,date_format(A.REG_DT, '%Y%m%d%h%i%S') 			AS regDt
+				,case when timestampdiff(second , A.REG_Dt , now() ) <![CDATA[< ]]>60 then     concat( timestampdiff(second , A.REG_Dt , now() )    ,'초 전' )
+			     when timestampdiff(second , A.REG_Dt , now() )  <![CDATA[<]]> 3600 then   concat( timestampdiff(minute , A.REG_Dt , now() )    ,'분 전' )
+			     when timestampdiff(second , A.REG_Dt , now() )  <![CDATA[<]]> 86400 then  concat( timestampdiff(hour , A.REG_Dt , now() )    ,'시간 전' )
+			     else concat( timestampdiff(day , A.REG_Dt , now() )    ,'일 전' )	end	 			AS regDt
 				,date_format(A.LST_CHG_DT, '%Y%m%d%h%i%S')	AS lstChgDt
 				,A.BOARD_ACTIVE_FG		 													AS boardActiveFg
 				,A.BOARD_BODY1 																AS boardBody1
