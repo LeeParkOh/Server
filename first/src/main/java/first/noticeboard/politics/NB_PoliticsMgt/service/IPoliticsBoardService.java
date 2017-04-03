@@ -18,4 +18,9 @@ public interface IPoliticsBoardService {
 	void insertBoardReply(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
 	public List<Map<String, Object>> searchPoliticsBoardReply(Map<String, Object> map);
+	
+	void updatePoliticsBoardHitCnt(Map<String, Object> map) throws Exception;
+	
+	void deletePoliticsBoard(Map<String, Object> map) throws Exception;
+	
 }

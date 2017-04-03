@@ -10,4 +10,6 @@ public interface IUserOperatingMgtService {
 
 	void saveUserInfo(Map<String, Object> map, HttpServletRequest request) throws Exception;
 	
+	void updateUserInfo(Map<String, Object> map) throws Exception;
+	
 }

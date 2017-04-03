@@ -17,4 +17,9 @@ public class UserOperatingMgtDAO extends AbstractDAO{
 	public void insertUserInfo(Map<String, Object> map) throws Exception{
 		insert("userOperatingMgtDAO.insertUserInfo", map);
 	}
+	
+	public void updateUserInfo(Map<String, Object> map) throws Exception{
+		update("userOperatingMgtDAO.updateUserInfo", map);
+	}
+	
 }

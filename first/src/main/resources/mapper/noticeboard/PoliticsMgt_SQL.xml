@@ -87,6 +87,12 @@
 			<if test="boardCd != null">
 				AND A.BOARD_CD = #{boardCd}
 			</if>	 
+			<if test="headSeq != null">
+				AND A.HEAD_SEQ = #{headSeq}
+			</if>	 
+			<if test="boardActiveFg != null">
+				AND A.BOARD_ACTIVE_FG = #{boardActiveFg}
+			</if>	 
 			ORDER BY  A.REG_DT DESC
 	</select>
 	
@@ -132,5 +138,25 @@
 				AND DETAIL_SEQ = #{detailSeq}
 			</if>	 
 	</select>
+	
+			<!--  조회수증가   -->
+	<update id="updatePoliticsBoardHitCnt" parameterType="hashmap" >
+		<![CDATA[
+		 UPDATE  TB_BOARD_HEAD
+		 SET  BOARD_SEARCH_CNT = IFNULL(BOARD_SEARCH_CNT,0)+1
+		 WHERE HEAD_SEQ = #{headSeq}
+		]]>
+		
+		<!--게시판 삭제   BOARD_ACTIVE_FG = Y  -->
+	</update>
+		<update id="deletePoliticsBoard" parameterType="hashmap">
+		<![CDATA[
+			UPDATE TB_BOARD
+			SET
+				BOARD_ACTIVE_FG = 'D'
+			WHERE
+				HEAD_SEQ = #{headSeq}
+		]]>
+	</update>
 	
 </mapper>

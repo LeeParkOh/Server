@@ -67,4 +67,28 @@ public class UserOperatingMgtController {
 	}
 		return mav;
 	}
+	
+	
+	/**
+	  * Description : 사용자 신규 등록 
+	  * @author  박종국 
+	  * @since   2017.03.29
+	  * @param  commandMap
+	  * @return  ModelAndView
+	*/
+	@RequestMapping(value="/user/updateUserInfo.do")
+	public ModelAndView updateUserInfo(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		ModelAndView mav = new ModelAndView("jsonView");
+	try{
+		iUserOperatingMgtService.updateUserInfo(commandMap.getMap());
+		mav = KctcMsgUtilService.getSuccMsg("SCMC001", mav);
+	}catch(DataAccessException de){
+		mav = new ModelAndView("jsonView");
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
+	}catch ( Exception e ){
+		mav = new ModelAndView("jsonView");
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
+	}
+		return mav;
+	}
 }

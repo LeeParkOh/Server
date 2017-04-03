@@ -49,8 +49,23 @@ public class PoliticsBoardServiceImpl implements IPoliticsBoardService{
 	
 	@Override
 	public  List<Map<String, Object>> searchPoliticsBoardReply(Map<String, Object> map)  {
+		try {
+		
+		} catch (Exception e) {
+			log.debug("Exception>>>"+e);
+		}
 		return politicsBoardMgtDAO.selectPoliticsBoardReply(map);
 	}
+
+	@Override
+	public void updatePoliticsBoardHitCnt(Map<String, Object> map) throws Exception {
+		politicsBoardMgtDAO.updatePoliticsBoardHitCnt(map);
+	}
 	
+	@Override
+	public void deletePoliticsBoard(Map<String, Object> map) throws Exception {
+		politicsBoardMgtDAO.deletePoliticsBoard(map);
+	}
+
 	
 }

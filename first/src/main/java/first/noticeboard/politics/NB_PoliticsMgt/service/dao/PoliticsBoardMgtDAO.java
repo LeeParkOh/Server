@@ -33,4 +33,12 @@ public class PoliticsBoardMgtDAO extends AbstractDAO{
 		return (List<Map<String, Object>>)selectList("politicsBoardMgtDAO.selectPoliticsBoardReply", map);
 	}
 	
+	public void  updatePoliticsBoardHitCnt(Map<String, Object> map) throws Exception{
+		update("politicsBoardMgtDAO.updatePoliticsBoardHitCnt", map);
+	}
+	
+	public void deletePoliticsBoard(Map<String, Object> map) throws Exception{
+		update("politicsBoardMgtDAO.deletePoliticsBoard", map);
+	}
+	
 }

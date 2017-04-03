@@ -41,4 +41,13 @@ public class UserOperatingMgtServiceImpl implements IUserOperatingMgtService{
 		map.put("userPw",encryptionService.getEncryptPw(userPw));
 		userOperatingMgtDAO.insertUserInfo(map);
 	}
+
+	@Override
+	public void updateUserInfo(Map<String, Object> map) throws Exception {
+		String userPw = (String) map.get("userPw") ;
+		if(userPw.length() > 0){
+			map.put("userPw",encryptionService.getEncryptPw(userPw));
+		}
+		userOperatingMgtDAO.updateUserInfo(map);
+	}
 }

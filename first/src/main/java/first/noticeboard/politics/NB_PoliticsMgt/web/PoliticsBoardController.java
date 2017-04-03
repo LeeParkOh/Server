@@ -129,8 +129,11 @@ public class PoliticsBoardController {
 	public ModelAndView searchPoliticsBoardReply(CommandMap commandMap) throws Exception {
 		ModelAndView mav = new ModelAndView("jsonView");
 		try {
-			List<Map<String,Object>> list = iPoliticsBoardService.searchPoliticsBoardReply(commandMap.getMap());
-			mav.addObject("PoliticsListReply", list);
+			 iPoliticsBoardService.updatePoliticsBoardHitCnt(commandMap.getMap());
+			List<Map<String,Object>> listMain = iPoliticsBoardService.searchPoliticsBoardInfo(commandMap.getMap());
+			List<Map<String,Object>> listDetail = iPoliticsBoardService.searchPoliticsBoardReply(commandMap.getMap());
+			mav.addObject("listMain", listMain);
+			mav.addObject("listDetail", listDetail);
 			mav = KctcMsgUtilService.getSuccMsg("SCMR001", mav);
 		}catch(DataAccessException de){
 			mav = new ModelAndView("jsonView");
@@ -142,5 +145,18 @@ public class PoliticsBoardController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping(value="/politics/deletePoliticsBoard.do")
+	public ModelAndView deletePoliticsBoard(CommandMap commandMap) throws Exception{
+		ModelAndView mav = new ModelAndView("jsonView");
+		try {
+			iPoliticsBoardService.deletePoliticsBoard(commandMap.getMap());
+			mav = KctcMsgUtilService.getSuccMsg("SCMD001", mav);
+		}catch( Exception e ){
+			mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+		}
+		return mav;
+	}
+	
 	
 }
