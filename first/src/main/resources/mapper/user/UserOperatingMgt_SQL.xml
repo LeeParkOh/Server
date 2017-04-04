@@ -10,7 +10,7 @@
 	       REG_DT									as regDt,
 	       DROP_DT 								as dropDt, 
 	       USER_ACTIVE_FG 					as userActiveFg,
-	       USER_PW									as userPw
+	       USER_PW									as userPw,
 	       MEMBER_KEY							as memberKey
 	FROM TB_USER
 	where 1=1

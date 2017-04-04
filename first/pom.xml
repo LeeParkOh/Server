@@ -341,7 +341,14 @@
 		    <artifactId>jasypt-spring3</artifactId>  
 		    <version>1.9.2</version>  
 		</dependency>  
-
+		
+	<!-- JWT 추가   -->		
+	<dependency>
+	    <groupId>com.auth0</groupId>
+	    <artifactId>java-jwt</artifactId>
+	    <version>3.1.0</version>
+	</dependency>
+	
 	</dependencies>
 	
 	
