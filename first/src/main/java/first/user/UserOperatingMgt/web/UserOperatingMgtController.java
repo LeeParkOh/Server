@@ -1,5 +1,7 @@
 package first.user.UserOperatingMgt.web;
 
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +13,12 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 
 import first.common.common.CommandMap;
 import first.common.util.service.KctcMsgUtilService;
@@ -91,4 +99,70 @@ public class UserOperatingMgtController {
 	}
 		return mav;
 	}
+	
+	
+	/**
+	  * Description : 사용자 정보 조회 
+	  * @author  박종국 
+	  * @since   2017.03.29
+	  * @param  commandMap
+	  * @return  ModelAndView
+	*/
+	@RequestMapping("/user/userLoginRequest.do")
+	public ModelAndView userLoginRequest(CommandMap commandMap
+									 , HttpServletRequest request) throws Exception {
+		ModelAndView mav = new ModelAndView("jsonView");
+		try {
+			  
+			Algorithm algorithm = Algorithm.HMAC256("secret");
+			    String token = JWT.create()
+						        .withIssuer("auth0")
+						        .sign(algorithm);
+			    
+			 log.debug("algorithm>>>>>"+ algorithm);  
+			 log.debug("token>>>>>"+ token); 
+			 
+			 ///////////////////////////////
+			 String token2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCddJ9.AbIJTDMFc7yUa5MhvcP03nJPyCPzZtQcGEp-zWfOkEE";
+			 Algorithm algorithm2 = Algorithm.HMAC256("secret");
+			    JWTVerifier verifier = JWT.require(algorithm2)
+								        .withIssuer("auth0")
+								        .build(); //Reusable verifier instance
+			 DecodedJWT jwt = verifier.verify(token);
+			 log.debug("algorithm2>>>"+algorithm2);
+			 log.debug("jwt>>>"+jwt);
+			 
+			 ////////////////////////////
+			DecodedJWT jwt3 = JWT.decode(token);
+			DecodedJWT jwt4 = JWT.decode(token2);
+			 
+			log.debug("jwt3>>>"+jwt3);
+			log.debug("jwt4>>>"+jwt4);
+			////////////////////////////////////////
+			
+			Map<String, Object> headerClaims = new HashMap();
+			headerClaims.put("owner", "auth0");
+			String token5 = JWT.create()
+			        .withHeader(headerClaims)
+			        .sign(algorithm);
+			
+			DecodedJWT jwt8 = JWT.decode(token5);
+			
+			log.debug("token5>>>"+token5);
+			log.debug("jwt8>>>"+jwt8);
+			
+		}catch (UnsupportedEncodingException exception){
+			log.debug("UnsupportedEncodingException>>>"+exception);
+		} catch (JWTVerificationException exception){
+			log.debug("JWTVerificationException>>>"+exception);
+		}catch(DataAccessException de){
+			mav = new ModelAndView("jsonView");
+		}catch ( Exception e ){
+			log.debug(">>>> JK E: "+e.getMessage());
+			mav = new ModelAndView("jsonView");
+		}
+		return mav;
+	}
+	
+	
 }
