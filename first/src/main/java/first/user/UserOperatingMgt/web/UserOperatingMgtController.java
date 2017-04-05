@@ -115,18 +115,20 @@ public class UserOperatingMgtController {
 		try {
 			  
 			Algorithm algorithm = Algorithm.HMAC256("secret");
+			Map<String, Object> headerClaims2 = new HashMap();
+			headerClaims2.put("owner", "JK");
 			    String token = JWT.create()
-						        .withIssuer("auth0")
+						        .withIssuer("LeeParkOh")
+						        .withHeader(headerClaims2)
 						        .sign(algorithm);
 			    
 			 log.debug("algorithm>>>>>"+ algorithm);  
 			 log.debug("token>>>>>"+ token); 
 			 
 			 ///////////////////////////////
-			 String token2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCddJ9.AbIJTDMFc7yUa5MhvcP03nJPyCPzZtQcGEp-zWfOkEE";
 			 Algorithm algorithm2 = Algorithm.HMAC256("secret");
 			    JWTVerifier verifier = JWT.require(algorithm2)
-								        .withIssuer("auth0")
+								        .withIssuer("LeeParkOh")
 								        .build(); //Reusable verifier instance
 			 DecodedJWT jwt = verifier.verify(token);
 			 log.debug("algorithm2>>>"+algorithm2);
@@ -134,10 +136,8 @@ public class UserOperatingMgtController {
 			 
 			 ////////////////////////////
 			DecodedJWT jwt3 = JWT.decode(token);
-			DecodedJWT jwt4 = JWT.decode(token2);
 			 
 			log.debug("jwt3>>>"+jwt3);
-			log.debug("jwt4>>>"+jwt4);
 			////////////////////////////////////////
 			
 			Map<String, Object> headerClaims = new HashMap();
