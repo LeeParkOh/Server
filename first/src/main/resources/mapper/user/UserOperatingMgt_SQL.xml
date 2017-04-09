@@ -65,4 +65,21 @@
 				REG_DT =  	date_format(now(), '%Y%m%d%H%i%S')
 			WHERE  USER_ID = #{userId}
 	</update>
+	
+	
+		<!-- 로그인 정보   -->
+	<select id="selectLoginInfo" parameterType="hashmap" resultType="hashmap">
+	 SELECT USER_ID 							as userId,
+	       USER_OS 								as userOs,
+	       USER_HW								as userHw,
+	       REG_DT									as regDt,
+	       DROP_DT 								as dropDt, 
+	       USER_ACTIVE_FG 					as userActiveFg,
+	       USER_PW									as userPw,
+	       MEMBER_KEY							as memberKey
+	FROM TB_USER
+	where 1=1
+		and USER_ID = #{userId}
+	</select>
+	
 </mapper>

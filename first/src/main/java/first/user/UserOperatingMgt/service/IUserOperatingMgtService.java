@@ -12,4 +12,6 @@ public interface IUserOperatingMgtService {
 	
 	void updateUserInfo(Map<String, Object> map) throws Exception;
 	
+	public List<Map<String, Object>> searchLoginInfo(String userId);	
+	
 }

@@ -1,7 +1,5 @@
 package first.user.UserOperatingMgt.web;
 
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +19,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import first.common.common.CommandMap;
+import first.common.util.JwtService;
 import first.common.util.service.KctcMsgUtilService;
 import first.user.UserOperatingMgt.service.IUserOperatingMgtService;;
 
@@ -30,6 +29,10 @@ public class UserOperatingMgtController {
 	
 	@Resource(name="iUserOperatingMgtService")
 	private IUserOperatingMgtService iUserOperatingMgtService;
+	
+	@Resource(name="jwtService")
+	private JwtService jwtService;
+	
 	
 	/**
 	  * Description : 사용자 정보 조회 
@@ -102,7 +105,7 @@ public class UserOperatingMgtController {
 	
 	
 	/**
-	  * Description : 사용자 정보 조회 
+	  * Description : 로그인 기능  
 	  * @author  박종국 
 	  * @since   2017.03.29
 	  * @param  commandMap
@@ -112,49 +115,46 @@ public class UserOperatingMgtController {
 	public ModelAndView userLoginRequest(CommandMap commandMap
 									 , HttpServletRequest request) throws Exception {
 		ModelAndView mav = new ModelAndView("jsonView");
+		String token="";
 		try {
-			  
-			Algorithm algorithm = Algorithm.HMAC256("secret");
-			Map<String, Object> headerClaims2 = new HashMap();
-			headerClaims2.put("owner", "JK");
-			    String token = JWT.create()
-						        .withIssuer("LeeParkOh")
-						        .withHeader(headerClaims2)
-						        .sign(algorithm);
-			    
-			 log.debug("algorithm>>>>>"+ algorithm);  
-			 log.debug("token>>>>>"+ token); 
-			 
-			 ///////////////////////////////
-			 Algorithm algorithm2 = Algorithm.HMAC256("secret");
-			    JWTVerifier verifier = JWT.require(algorithm2)
-								        .withIssuer("LeeParkOh")
-								        .build(); //Reusable verifier instance
-			 DecodedJWT jwt = verifier.verify(token);
-			 log.debug("algorithm2>>>"+algorithm2);
-			 log.debug("jwt>>>"+jwt);
-			 
-			 ////////////////////////////
-			DecodedJWT jwt3 = JWT.decode(token);
-			 
-			log.debug("jwt3>>>"+jwt3);
-			////////////////////////////////////////
 			
-			Map<String, Object> headerClaims = new HashMap();
-			headerClaims.put("owner", "auth0");
-			String token5 = JWT.create()
-			        .withHeader(headerClaims)
-			        .sign(algorithm);
+			String userId = (String) commandMap.get("userId");
+			String userPw = (String) commandMap.get("userPw");
+			List<Map<String,Object>> list = iUserOperatingMgtService.searchLoginInfo(userId);
 			
-			DecodedJWT jwt8 = JWT.decode(token5);
+			int chkListSize = list.size();
+			String chkUserId = (String)list.get(0).get("userId");
+			String chkUserPw = (String)list.get(0).get("userPw");
 			
-			log.debug("token5>>>"+token5);
-			log.debug("jwt8>>>"+jwt8);
+			log.debug("chkListSize>>>"+chkListSize);
+			log.debug("userId>>>"+userId);
+			log.debug("userPw>>>"+userPw);
 			
-		}catch (UnsupportedEncodingException exception){
-			log.debug("UnsupportedEncodingException>>>"+exception);
-		} catch (JWTVerificationException exception){
+			log.debug("chkUserId>>>"+chkUserId);
+			log.debug("chkUserPw>>>"+chkUserPw);
+			
+			if(chkListSize > 0){		//사용자 존재 
+				if(userPw.equals(chkUserPw)){
+					token = jwtService.getToken(userId);
+					log.debug("token>>>>"+token);
+					if(token.length() > 0){
+						mav = KctcMsgUtilService.getSuccMsg("SCMR001", mav);
+						mav.addObject("token", token);
+					}else{
+						mav = KctcMsgUtilService.getErrMsg("ECMR001", mav);
+						mav.addObject("token", "fail");
+					}
+				}else{//userPw==chkUserPw 끝 
+					mav = KctcMsgUtilService.getErrMsg("ITSE002", mav);
+					mav.addObject("token", "fail");
+				} 
+			}else{
+				mav = KctcMsgUtilService.getErrMsg("ITSE001", mav);
+				mav.addObject("token", "fail");
+			}
+		}catch (JWTVerificationException exception){
 			log.debug("JWTVerificationException>>>"+exception);
+			mav.addObject("token", exception);
 		}catch(DataAccessException de){
 			mav = new ModelAndView("jsonView");
 		}catch ( Exception e ){
@@ -163,6 +163,4 @@ public class UserOperatingMgtController {
 		}
 		return mav;
 	}
-	
-	
 }

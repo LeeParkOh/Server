@@ -22,4 +22,10 @@ public class UserOperatingMgtDAO extends AbstractDAO{
 		update("userOperatingMgtDAO.updateUserInfo", map);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public   List<Map<String, Object>> selectLoginInfo(String userId) {
+		return (List<Map<String, Object>>) selectList("userOperatingMgtDAO.selectLoginInfo", userId);
+	}
+	
+	
 }

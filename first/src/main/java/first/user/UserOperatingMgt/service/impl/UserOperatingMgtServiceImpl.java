@@ -50,4 +50,13 @@ public class UserOperatingMgtServiceImpl implements IUserOperatingMgtService{
 		}
 		userOperatingMgtDAO.updateUserInfo(map);
 	}
+	
+	@Override
+	public  List<Map<String, Object>> searchLoginInfo(String userId)  {
+		List<Map<String, Object>> vList = userOperatingMgtDAO.selectLoginInfo(userId);
+		String  userPw =  (String) vList.get(0).get("userPw");
+		vList.get(0).put("userPw",encryptionService.getDecipherPw(userPw));
+		return vList;
+	}
+	
 }
