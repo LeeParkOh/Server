@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import first.common.util.EncryptionService;
 import first.common.util.FileUtils;
+import first.common.util.service.BoardStringUtil;
 import first.user.UserOperatingMgt.service.IUserOperatingMgtService;
 import first.user.UserOperatingMgt.service.dao.UserOperatingMgtDAO;
 
@@ -54,9 +55,16 @@ public class UserOperatingMgtServiceImpl implements IUserOperatingMgtService{
 	@Override
 	public  List<Map<String, Object>> searchLoginInfo(String userId)  {
 		List<Map<String, Object>> vList = userOperatingMgtDAO.selectLoginInfo(userId);
-		String  userPw =  (String) vList.get(0).get("userPw");
-		vList.get(0).put("userPw",encryptionService.getDecipherPw(userPw));
+		if(vList.size() > 0)
+		{
+			String  userPw =  BoardStringUtil.isNullToString((String) vList.get(0).get("userPw"));
+			if(userPw.length() > 0){
+				vList.get(0).put("userPw",encryptionService.getDecipherPw(userPw));
+			}else{
+				vList.get(0).put("userPw","");
+			}
+			
+		}
 		return vList;
 	}
-	
 }

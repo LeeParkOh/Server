@@ -121,19 +121,19 @@ public class UserOperatingMgtController {
 			String userId = (String) commandMap.get("userId");
 			String userPw = (String) commandMap.get("userPw");
 			List<Map<String,Object>> list = iUserOperatingMgtService.searchLoginInfo(userId);
-			
 			int chkListSize = list.size();
-			String chkUserId = (String)list.get(0).get("userId");
-			String chkUserPw = (String)list.get(0).get("userPw");
-			
-			log.debug("chkListSize>>>"+chkListSize);
-			log.debug("userId>>>"+userId);
-			log.debug("userPw>>>"+userPw);
-			
-			log.debug("chkUserId>>>"+chkUserId);
-			log.debug("chkUserPw>>>"+chkUserPw);
 			
 			if(chkListSize > 0){		//사용자 존재 
+				String chkUserId = (String)list.get(0).get("userId");
+				String chkUserPw = (String)list.get(0).get("userPw");
+				
+				log.debug("chkListSize>>>"+chkListSize);
+				log.debug("userId>>>"+userId);
+				log.debug("userPw>>>"+userPw);
+				log.debug("chkUserId>>>"+chkUserId);
+				log.debug("chkUserPw>>>"+chkUserPw);
+				
+			
 				if(userPw.equals(chkUserPw)){
 					token = jwtService.getToken(userId);
 					log.debug("token>>>>"+token);

@@ -349,6 +349,12 @@
 	    <version>3.1.0</version>
 	</dependency>
 	
+	<!-- JSON 인터셉터  -->
+	<dependency>
+	    <groupId>com.github.jonpeterson</groupId>
+	    <artifactId>jackson-module-json-interceptor</artifactId>
+	    <version>1.0.0</version>
+	</dependency>
 	</dependencies>
 	
 	

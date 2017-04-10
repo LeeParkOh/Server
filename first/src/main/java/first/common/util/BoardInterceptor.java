@@ -36,16 +36,19 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 			CommandMap commandMap3 = new CommandMap();
 			CommandMap commandMap4 = new CommandMap();
 			CommandMap commandMap5 = new CommandMap();
+			CommandMap commandMap6 = new CommandMap();
 			commandMap = (CommandMap) session.getAttribute("json");
 			commandMap2 = (CommandMap) session.getAttribute("jsonView");
 			commandMap3 = (CommandMap) session.getAttribute("service");
 			commandMap4 = (CommandMap) session.getAttribute("call");
 			commandMap5 = (CommandMap) session.getAttribute("retrofit");
+			commandMap6 = (CommandMap) session.getAttribute("boardCd");
 			log.debug("commandMap>>>>"+commandMap);
 			log.debug("commandMap2>>>>"+commandMap2);
 			log.debug("commandMap3>>>>"+commandMap3);
 			log.debug("commandMap4>>>>"+commandMap4);
 			log.debug("commandMap5>>>>"+commandMap5);
+			log.debug("commandMap6>>>>"+commandMap6);
 			
 			log.debug("getAttributeNames>>"+session.getAttributeNames());
 			log.debug("getId>>"+session.getId());
