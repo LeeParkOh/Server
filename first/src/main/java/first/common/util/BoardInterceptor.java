@@ -37,6 +37,13 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 			CommandMap commandMap4 = new CommandMap();
 			CommandMap commandMap5 = new CommandMap();
 			CommandMap commandMap6 = new CommandMap();
+			CommandMap commandMap7 = new CommandMap();
+			String headerToken = request.getHeader("token");
+			String getAuthType = request.getAuthType();
+			String[] boardCd =  request.getParameterValues("boardCd");
+			String[] json =  request.getParameterValues("json");
+			String[] userId =  request.getParameterValues("userId");
+			
 			commandMap = (CommandMap) session.getAttribute("json");
 			commandMap2 = (CommandMap) session.getAttribute("jsonView");
 			commandMap3 = (CommandMap) session.getAttribute("service");
@@ -52,6 +59,12 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 			
 			log.debug("getAttributeNames>>"+session.getAttributeNames());
 			log.debug("getId>>"+session.getId());
+			
+			log.debug("String headerToken>>>>>"+headerToken);
+			log.debug("String getAuthType>>>>>"+getAuthType);
+			log.debug("String boardCd>>>>>"+boardCd);
+			log.debug("String json>>>>>"+json);
+			log.debug("String userId>>>>>"+userId);
 			
 		}
 		return super.preHandle(request, response, handler);
