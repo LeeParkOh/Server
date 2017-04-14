@@ -74,7 +74,10 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 					isRequest = false;
 					
 				}
+			}else{
+				isRequest = true;
 			}
+			
 		}//log.isdebug end
 		return isRequest;
 	}
