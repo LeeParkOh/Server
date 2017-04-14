@@ -163,4 +163,36 @@ public class UserOperatingMgtController {
 		}
 		return mav;
 	}
+	
+	/**
+	  * Description : 인증실패
+	  * @author  박종국 
+	  * @since   2017.03.29
+	  * @param  commandMap
+	  * @return  ModelAndView
+	*/
+	@RequestMapping(value="/user/userLoginForm.do")
+	public ModelAndView userLoginForm(CommandMap commandMap, HttpServletRequest request) throws Exception{
+		ModelAndView mav = new ModelAndView("jsonView");
+	try{
+		log.debug("userLoginForm Start>>>");
+		String chk1 = (String)request.getAttribute("testVauleNo");
+		String chk2 = (String)request.getAttribute("testVauleNo");
+		log.debug("chk1>>"+chk1+"  ||chk2>>>"+chk2);
+		mav.addObject("chk1", chk1);
+		mav.addObject("chk2", chk2);
+		mav = KctcMsgUtilService.getErrMsg("ECMR003", mav);
+	}catch(DataAccessException de){
+		mav = new ModelAndView("jsonView");
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
+	}catch ( Exception e ){
+		mav = new ModelAndView("jsonView");
+		mav = KctcMsgUtilService.getErrMsg("ECMC001", mav);
+	}
+		return mav;
+	}
+	
+	
+	
+	
 }
