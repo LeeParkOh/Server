@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
@@ -50,6 +51,9 @@ public class JwtService   {
 			 log.debug("jwt>>>"+jwt);
 		}catch(UnsupportedEncodingException exception){
 			log.debug("UnsupportedEncodingException>>>"+exception);
+			return "UnVerifiedToken";
+		}catch(JWTDecodeException e){
+			log.debug("JWTDecodeException>>>"+e);
 			return "UnVerifiedToken";
 		}catch (JWTVerificationException exception){
 			log.debug("JWTVerificationException>>>"+exception);

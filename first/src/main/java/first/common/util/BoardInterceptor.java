@@ -31,6 +31,7 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 							, HttpServletResponse response
 							, Object handler) throws Exception {
 		boolean isRequest = false;
+		session = request.getSession();
 		if (log.isDebugEnabled()) {
 			log.debug("BoardInterceptor>>>>preHandler");
 			log.debug("BoardInterceptor>>>>Request URI \t:  " + request.getRequestURI());
@@ -39,40 +40,47 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 			String chkRequestUri = request.getRequestURI();
 			
 			if(chkRequestUri.equals("/user/searchUserInfo.do")||
-			    chkRequestUri.equals("/user/userLoginRequest.do")||											
+			    //chkRequestUri.equals("/user/userLoginRequest.do")||											
 			    chkRequestUri.equals("/politics/insertBoard.do")||		
 			    chkRequestUri.equals("/politics/insertBoardReply.do")||
 			    chkRequestUri.equals("/politics/deletePoliticsBoard.do")
 																		){
 				String headerToken = request.getHeader("token");
+				
+				headerToken = BoardStringUtil.isNullToString(headerToken);
 				log.debug("String headerToken>>>>>"+headerToken);
-				
-				
-				//토큰검증 
-				String chkVeriToken = BoardStringUtil.isNullToString(jwtService.verifyToken(headerToken));
-				DecodedJWT jwt = JWT.decode(chkVeriToken);
-				String chkId = jwt.getId();
-				Map<String, Claim> chkClaims = jwt.getClaims();
-				String chkSubject = jwt.getSubject();
-				String chkIssuer = jwt.getIssuer();
-				String chkGetToken = jwt.getToken();
-				
-				log.debug("chkClaims>>>"+chkClaims);
-				log.debug("chkSubject>>>"+chkSubject);
-				log.debug("chkIssuer>>>"+chkIssuer);
-				log.debug("chkGetToken>>>"+chkGetToken);
-				
-				log.debug("chkId>>>>"+chkId);
-				if(chkVeriToken.equals("VerifiedToken")){//토큰 검증 ok
-					log.debug("VerifiedToken ok");
-					request.setAttribute("testVauleOk", "testVaule");
-					isRequest = true;
-				}else{
-					log.debug("VerifiedToken nono");
-					request.setAttribute("testVauleNo", "testVaule");
+				if(!(headerToken == null)&&!(headerToken.equals(""))){
+					//토큰검증 
+					String chkVeriToken = BoardStringUtil.isNullToString(jwtService.verifyToken(headerToken));
+					DecodedJWT jwt = JWT.decode(chkVeriToken);
+					String chkId = jwt.getId();
+					Map<String, Claim> chkClaims = jwt.getClaims();
+					String chkSubject = jwt.getSubject();
+					String chkIssuer = jwt.getIssuer();
+					String chkGetToken = jwt.getToken();
+					
+					log.debug("chkClaims>>>"+chkClaims);
+					log.debug("chkSubject>>>"+chkSubject);
+					log.debug("chkIssuer>>>"+chkIssuer);
+					log.debug("chkGetToken>>>"+chkGetToken);
+					
+					log.debug("chkId>>>>"+chkId);
+					if(chkVeriToken.equals("VerifiedToken")){//토큰 검증 ok
+						log.debug("VerifiedToken ok");
+						session.setAttribute("IsVerifiedToken", "Y");
+						isRequest = true;
+					}else{
+						log.debug("VerifiedToken nono");
+						session.setAttribute("IsVerifiedToken", "N");
+						response.sendRedirect("/user/userLoginForm.do");
+						isRequest = false;
+						
+					}
+				}else{//토큰이 null이면  
+					log.debug("VerifiedToken nono2");
+					session.setAttribute("IsVerifiedToken", "N");  //앞: 변수명 뒤:value  
 					response.sendRedirect("/user/userLoginForm.do");
 					isRequest = false;
-					
 				}
 			}else{
 				isRequest = true;

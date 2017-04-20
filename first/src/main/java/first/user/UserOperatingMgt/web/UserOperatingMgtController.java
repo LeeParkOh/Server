@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -32,7 +33,7 @@ public class UserOperatingMgtController {
 	
 	@Resource(name="jwtService")
 	private JwtService jwtService;
-	
+	private HttpSession session = null;
 	
 	/**
 	  * Description : 사용자 정보 조회 
@@ -81,7 +82,7 @@ public class UserOperatingMgtController {
 	
 	
 	/**
-	  * Description : 사용자 신규 등록 
+	  * Description : 사용자 수정 
 	  * @author  박종국 
 	  * @since   2017.03.29
 	  * @param  commandMap
@@ -176,11 +177,10 @@ public class UserOperatingMgtController {
 		ModelAndView mav = new ModelAndView("jsonView");
 	try{
 		log.debug("userLoginForm Start>>>");
-		String chk1 = (String)request.getAttribute("testVauleNo");
-		String chk2 = (String)request.getAttribute("testVauleNo");
-		log.debug("chk1>>"+chk1+"  ||chk2>>>"+chk2);
-		mav.addObject("chk1", chk1);
-		mav.addObject("chk2", chk2);
+		session = request.getSession();
+		String IsVerifiedToken = (String)session.getAttribute("IsVerifiedToken");
+		log.debug("IsVerifiedToken chk1>>"+IsVerifiedToken);
+		mav.addObject("IsVerifiedToken", IsVerifiedToken);
 		mav = KctcMsgUtilService.getErrMsg("ECMR003", mav);
 	}catch(DataAccessException de){
 		mav = new ModelAndView("jsonView");
@@ -191,8 +191,4 @@ public class UserOperatingMgtController {
 	}
 		return mav;
 	}
-	
-	
-	
-	
 }
