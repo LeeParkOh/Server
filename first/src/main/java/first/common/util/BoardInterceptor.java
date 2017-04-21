@@ -52,19 +52,24 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 				if(!(headerToken == null)&&!(headerToken.equals(""))){
 					//토큰검증 
 					String chkVeriToken = BoardStringUtil.isNullToString(jwtService.verifyToken(headerToken));
-					DecodedJWT jwt = JWT.decode(chkVeriToken);
+					DecodedJWT jwt = JWT.decode(headerToken);
+					
 					String chkId = jwt.getId();
 					Map<String, Claim> chkClaims = jwt.getClaims();
 					String chkSubject = jwt.getSubject();
 					String chkIssuer = jwt.getIssuer();
 					String chkGetToken = jwt.getToken();
 					
+					Claim claim = jwt.getClaim("userId");
+					
+					log.debug("claim>>userId>>>"+claim);
 					log.debug("chkClaims>>>"+chkClaims);
 					log.debug("chkSubject>>>"+chkSubject);
 					log.debug("chkIssuer>>>"+chkIssuer);
 					log.debug("chkGetToken>>>"+chkGetToken);
-					
 					log.debug("chkId>>>>"+chkId);
+					
+					
 					if(chkVeriToken.equals("VerifiedToken")){//토큰 검증 ok
 						log.debug("VerifiedToken ok");
 						session.setAttribute("IsVerifiedToken", "Y");
