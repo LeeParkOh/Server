@@ -34,7 +34,7 @@ public class BoardInterceptor extends HandlerInterceptorAdapter implements HttpS
 		session = request.getSession();
 		if (log.isDebugEnabled()) {
 			log.debug("BoardInterceptor>>>>preHandler");
-			log.debug("BoardInterceptor>>>>Request URI \t:  " + request.getRequestURI());
+			log.debug("BoardInterceptor>>>>Request URI \t:   " + request.getRequestURI());
 			log.debug("BoardInterceptor>>>>Request getSession \t:  " + request.getSession());
 			log.debug("");
 			String chkRequestUri = request.getRequestURI();
