@@ -12,7 +12,7 @@
     </bean>   -->
     <bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/feelfos"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/leeparkoh?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;autoReconnect=true"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
     </bean>
