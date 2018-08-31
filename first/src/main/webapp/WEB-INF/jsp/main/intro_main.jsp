@@ -43,6 +43,10 @@
         .searchWrap fieldset input[type="text"]:-moz-placeholder {font-weight:bold;color:#999;}
         .searchWrap fieldset .btnSearch {float:right;width:40px;height:36px;text-indent:-99999em;box-sizing:border-box;background:url('#') no-repeat center 2px;}
 
+        .header .lnb {overflow:hidden;width:100%; height:30px;border-top:1px dashed #cccccc;border-bottom:1px solid #cccccc; padding:5px;}
+        .header .lnb ul {width:1000px; margin:0 auto;}
+        .header .lnb li {float: left;margin:5px;line-height:25px;list-style: none;}
+        .header .lnb a {color:#282828;font-size:1.1em;padding:10px 30px;}
 
 </style>
 </head>
@@ -85,6 +89,19 @@
       </div>
   </div>
 
+  <div class="lnb">
+      <ul>
+          <li><a href="#" alt="">menu1</a></li>
+          <li><a href="#" alt="">menu2</a></li>
+          <li><a href="#" alt="">menu3</a></li>
+          <li><a href="#" alt="">menu4</a></li>
+          <li><a href="#" alt="">menu5</a></li>
+          <li><a href="#" alt="">menu6</a></li>
+          <li><a href="#" alt="">menu7</a></li>
+          <li><a href="#" alt="">menu8</a></li>
+      </ul>
+  </div>
+
 </div>
 
 
@@ -97,3 +114,4 @@
 </div>
 </body>
 </html>
+
