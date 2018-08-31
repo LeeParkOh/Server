@@ -51,20 +51,20 @@
 	<div class="gnb">
 		<div class="gnbLeft">
 			<ul>
-				<li><a href="#" alt="">ì¦ê²¨ì°¾ê¸°</a></li>
+				<li><a href="#" alt="">즐겨찾기</a></li>
 				<li><a href="#" alt="">2018-01-01</a></li>
 			</ul>
 		</div>
 
 		<div class="gnbRight">
 			<ul>
-				<li><a href="#" alt="">ê³µì§</a></li>
-				<li><a href="#" alt="">ì´ë²¤í¸</a></li>
-				<li><a href="#" alt="">ì ê³ /ê±´ì</a></li>
-				<li><a href="#" alt="">ì¶ìë¶</a></li>
-				<li><a href="#" alt="">ë¡ê·¸ì¸</a></li>
-				<li><a href="#" alt="">íìê°ì</a></li>
-				<li><a href="#" alt="">ì ë³´ê²ì</a></li>
+				<li><a href="#" alt="">공지</a></li>
+				<li><a href="#" alt="">이벤트</a></li>
+				<li><a href="#" alt="">신고/건의</a></li>
+				<li><a href="#" alt="">출석부</a></li>
+				<li><a href="#" alt="">로그인</a></li>
+				<li><a href="#" alt="">회원가입</a></li>
+				<li><a href="#" alt="">정보검색</a></li>
 				<li><a href="#" alt="">FAQ</a></li>
 			</ul>
 		</div>
@@ -72,13 +72,13 @@
 
   <div class="headerContWrap">
     	<div class="innerWrap">
-          <h1><a href="#" target="_self" title="ë©ì¸íë©´ì¼ë¡ ì´ë"><img src="main_logo.jpg" alt="ë¡ê³ " /></a></h1>
+          <h1><a href="#" target="_self" title="메인화면으로 이동"><img src="main_logo.jpg" alt="로고" /></a></h1>
           <div class="searchWrap">
               <form name='search' id="search" action='/ebs/bsz.BscMainSrch.laf' method='post' onsubmit="return false;">
                 <fieldset>
-                  <legend>ê²ì ë°ì¤</legend>
+                  <legend>검색 박스</legend>
                   <input type="text" class="txt" id="query" name="query" value="" autocomplete="off" onfocus="clearKeyword2()"  onkeydown="javascript:if(event.keyCode==13){ doSearch();}"/>
-                  <button type="submit" class="btnSearch" onclick="doSearch();" >ê²ì</button>
+                  <button type="submit" class="btnSearch" onclick="doSearch();" >검색</button>
                 </fieldset>
             </form>
           </div>
