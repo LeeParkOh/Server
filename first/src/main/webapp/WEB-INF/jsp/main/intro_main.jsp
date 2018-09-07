@@ -17,6 +17,8 @@
             font: inherit;
             vertical-align: baseline;
         }
+        a {color: rgb(51, 51, 51);text-decoration: none;  cursor: pointer; background: 0 0;box-sizing: border-box;}
+        a:link{color:#000;}
         .header {}
         .header .gnb { width:1600px; background-color:#353535;  display:inline-block;  box-sizing: border-box;}
         .header .gnb .gnbLeft {overflow:hidden;float:left; width:300px; background-color:#353535; box-sizing:border-box;margin-right: 0px;border: 1px solid red;}
@@ -48,6 +50,29 @@
         .header .lnb li {float: left;margin:5px;line-height:25px;list-style: none;}
         .header .lnb a {color:#282828;font-size:1.1em;padding:10px 30px;}
 
+        .body .mainCenter{padding-bottom: 0px; border: solid 1px red;min-height: 1px;box-sizing: border-box;display: block;}
+        .body .mainCenter .row{border: solid 2px orange;}
+        .body .mainCenter .col-sm-6 .div-title-underbar{border: solid 1px blue;}
+        .body .mainCenter .col-sm-6 .widget-box{border: solid 1px yellow;}
+
+        .body .mainCenter{ padding-bottom: 0px;position: relative;padding-left: 15px;padding-right: 15px;padding-top: 20px;width: 75%;min-height: 1px;box-sizing: border-box;display: block;}
+        .body .mainCenter .row{margin-right: -15px;margin-left: -15px;box-sizing: border-box;display: block;line-height: 22px;display: table;content: " ";clear: both;}
+        .body .mainCenter .row .col-sm-6{ width:50%; float: left;position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;box-sizing: border-box;}
+        .body .mainCenter .row .col-sm-6 .div-title-underbar{margin-bottom: 15px;padding: 0; margin: 0;border-bottom: 1px solid #cccccc; box-sizing: border-box;display: block;}
+        .pull-right{padding-bottom: 4px;display: inline-block;margin-bottom: -1px;float: right!important;box-sizing: border-box;cursor: pointer;line-height: 22px;}
+        .div-title-underbar-bold{padding-bottom: 4px;display: inline-block;margin-bottom: -1px; border-bottom: 1px solid #333333;box-sizing: border-box;}
+
+        .widget-box{margin-bottom: 25px; box-sizing: border-box;}
+        .basic-post-list{box-sizing: border-box;}
+        .basic-post-list .post-list{list-style: none;padding: 0;margin: -2px 0px;line-height: 22px; box-sizing: border-box;display: block;}
+        .post-list .post-list li{padding: 0px;margin: 0px;}
+        .post-list .post-list .ellipsis{display: block; text-overflow: ellipsis;white-space: nowrap;overflow: hidden;box-sizing: border-box;text-align: -webkit-match-parent;}
+        .count{font-size: 10px;font-weight: bold;font-family: verdana;letter-spacing: -1px;line-height: 16px;padding-right: 1px;box-sizing: border-box;}
+        .orangered{color: orangered}
+        .post-list .wr-new {width:12px; height: 12px;background-image: url(./img/icon_new.gif) }
+        .post-list .wr-icon{display: inline-block;padding: 0px;margin: 0px;line-height: 12px; background-repeat: no-repeat;background-position: 0px 0px;}
+        .wr-icon{vertical-align: baseline!important;}
+
 </style>
 </head>
 <body>
@@ -78,7 +103,7 @@
     	<div class="innerWrap">
           <h1><a href="#" target="_self" title="메인화면으로 이동"><img src="main_logo.jpg" alt="로고" /></a></h1>
           <div class="searchWrap">
-              <form name='search' id="search" action='/ebs/bsz.BscMainSrch.laf' method='post' onsubmit="return false;">
+              <form name='search' id="search" action='#' method='post' onsubmit="return false;">
                 <fieldset>
                   <legend>검색 박스</legend>
                   <input type="text" class="txt" id="query" name="query" value="" autocomplete="off" onfocus="clearKeyword2()"  onkeydown="javascript:if(event.keyCode==13){ doSearch();}"/>
@@ -103,11 +128,883 @@
   </div>
 
 </div>
-
-
 <div class="body">
+  <div class="mainCenter">
+    <div class="row">
+      <div class="col-sm-6">	<!-- 베스트 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold">
+								<b>베스트</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 베스트 끝 -->
+      <div class="col-sm-6">	<!-- 실시간인기 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>실시간인기</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 실시간인기 끝 -->
+    </div><!-- //row 1 -->
+    <div class="row">
+      <div class="col-sm-6">	<!-- 유머 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>유머</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 유머 끝 -->
+      <div class="col-sm-6">	<!-- 연예인 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>연예인</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 연예인 끝 -->
+    </div><!-- //row 2 -->
+    <div class="row">
+      <div class="col-sm-6">	<!-- 찰카닥 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>찰카닥</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 찰카닥 끝 -->
+      <div class="col-sm-6">	<!-- 미스터리 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>미스터리</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 미스터리 끝 -->
+    </div><!-- //row 3 -->
+    <div class="row">
+      <div class="col-sm-6">	<!-- 취미 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>취미</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 취미 끝 -->
+      <div class="col-sm-6">	<!-- 익명 시작 -->
+					<div class="div-title-underbar">
+						<a href="#">
+							<span class="pull-right">+</span>
+							<span class="div-title-underbar-bold border-navy font-16 en">
+								<b>익명</b>
+							</span>
+						</a>
+					</div>
+					<div class="widget-box">
+						<div class="basic-post-list">
+              <ul class="post-list">
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+6</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+10</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+1</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			번역해줘		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+                      <span class="pull-right gray font-12">
+              					     <span class="count orangered">+29</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+8</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+7</span>
+              						</span>
+              			   <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+22</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+9</span>
+              				</span>
+              				<span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+              	</li>
+              	<li class="ellipsis">
+              		<a href="#">
+              				<span class="pull-right gray font-12">
+              						<span class="count orangered">+17</span>
+              				</span>
+              			  <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+              	</li>
+              </ul>
+              </div>
+					</div>
+			</div>	<!-- 익명 끝 -->
+    </div><!-- //row 4 -->
+    <div class="row">
+      <div class="col-sm-6">	<!-- 투표소 시작 -->
+          <div class="div-title-underbar">
+            <a href="#">
+              <span class="pull-right">+</span>
+              <span class="div-title-underbar-bold border-navy font-16 en">
+                <b>투표소</b>
+              </span>
+            </a>
+          </div>
+          <div class="widget-box">
+            <div class="basic-post-list">
+              <ul class="post-list">
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+6</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+8</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+10</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+1</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>			번역해줘		</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                             <span class="count orangered">+29</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+8</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+7</span>
+                          </span>
+                       <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+22</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+9</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+17</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+                </li>
+              </ul>
+              </div>
+          </div>
+      </div>	<!-- 투표소 끝 -->
+      <div class="col-sm-6">	<!-- 기타 시작 -->
+          <div class="div-title-underbar">
+            <a href="#">
+              <span class="pull-right">+</span>
+              <span class="div-title-underbar-bold border-navy font-16 en">
+                <b>기타</b>
+              </span>
+            </a>
+          </div>
+          <div class="widget-box">
+            <div class="basic-post-list">
+              <ul class="post-list">
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+6</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>돌고도는 슬기 조이 아이린</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+8</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>빛 그 자체 마이콜 근황</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+10</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>끼부리는 조보아</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+1</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>			번역해줘		</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                             <span class="count orangered">+29</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>현 아이콘소속 쇼미3 참가자의</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+8</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>			장원영 아이컨택		</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+7</span>
+                          </span>
+                       <span class="wr-icon wr-new"></span>갓도 오프닝 레전드</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+22</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>헬스하는 남자랑 결혼해야 하는 이유</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+9</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>장동민의 엄청난 반응 속도</a>
+                </li>
+                <li class="ellipsis">
+                  <a href="#">
+                      <span class="pull-right gray font-12">
+                          <span class="count orangered">+17</span>
+                      </span>
+                      <span class="wr-icon wr-new"></span>충격적인 프로듀스 합격자의 모습</a>
+                </li>
+              </ul>
+              </div>
+          </div>
+      </div>	<!-- 기타 끝 -->
+    </div><!-- //row 5 -->
+  </div><!-- //mainCenter -->
+  <div class="mainRightSide">
 
-</div>
+  </div><!-- //mainRightSide -->
+</div> <!-- //body -->
 
 <div class="footer">
 
